@@ -1,0 +1,5 @@
+* 
+!dist-frontend/
+!php-backend/
+!nginx/
+!nginx.conf

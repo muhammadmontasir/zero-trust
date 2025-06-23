@@ -1,0 +1,53 @@
+services:
+  backend:
+    build:
+      context: ./php-backend
+      dockerfile: ../Dockerfile.backend
+    container_name: php-backend
+    volumes:
+      - ./php-backend:/var/www/html
+    depends_on: 
+      - db
+    networks:
+      - zt-network
+    environment:
+      DB_HOST: db
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+    ports:
+     - "8081:80"
+
+  frontend:
+    build:
+      context: ./dist-frontend
+      dockerfile: ../Dockerfile.frontend
+    container_name: frontend
+    ports:
+      - "8080:80"
+    networks:
+      - zt-network
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3307:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - zt-network
+
+volumes:
+  db-data: 
+
+networks:
+  zt-network:
+   driver: bridge
