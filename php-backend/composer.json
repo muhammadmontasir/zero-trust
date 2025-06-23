@@ -1,5 +1,5 @@
 {
-    "name": "your-org/zero-trust-product-analyzer",
+    "name": "zero-trust/zero-trust-product-analyzer",
     "description": "Zero Trust PHP backend for product analyzer",
     "type": "project",
     "autoload": {
