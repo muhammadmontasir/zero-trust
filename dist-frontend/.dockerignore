@@ -1,0 +1,16 @@
+.git/
+.gitignore
+node_modules/
+src/
+angular.json
+package.json
+package-lock.json
+tsconfig.json
+*.log
+*.swp
+*.bak
+.env
+docker-compose.yml
+Dockerfile
+README.md
+.dockerignore
