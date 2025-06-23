@@ -13,7 +13,7 @@ BUNDLE_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 def start_docker():
     print("Starting Docker containers...")
-    subprocess.run(["docker-compose", "up", "-d"], check = True)
+    subprocess.run(["docker", "compose", "up", "-d"], check = True)
 
 def open_browser():
     print(f"Opening browser to {LOCAL_URL}")
@@ -21,7 +21,7 @@ def open_browser():
 
 def stop_docker():
     print("Stopping Docker containers...")
-    subprocess.run(["docker-compose", "down"], check=True)
+    subprocess.run(["docker", "compose", "down"], check=True)
 
 def cleanup_files():
     print("Cleaning up downloaded logic bundle...")

@@ -1,8 +1,6 @@
 services:
   backend:
-    build:
-      context: ./php-backend
-      dockerfile: ../Dockerfile.backend
+    build: ./php-backend
     container_name: php-backend
     volumes:
       - ./php-backend:/var/www/html
@@ -19,9 +17,7 @@ services:
      - "8081:80"
 
   frontend:
-    build:
-      context: ./dist-frontend
-      dockerfile: ../Dockerfile.frontend
+    build: ./dist-frontend
     container_name: frontend
     ports:
       - "8080:80"

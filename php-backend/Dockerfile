@@ -1,4 +1,4 @@
-# Dockerfile.backend
+# php-backend/Dockerfile
 FROM php:8.2-apache
 
 # Update system packages to address vulnerabilities
@@ -8,6 +8,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get clean
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # Copy php files into apache root
-COPY ./php-backend/ /var/www/html
+COPY . /var/www/html/
 
 EXPOSE 80
