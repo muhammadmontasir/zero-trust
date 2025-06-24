@@ -1,0 +1,9 @@
+<h2>Upload Products</h2>
+<form (submit)="uploadCSV()">
+    <input type="file" (change)="onFileSelected($event)">
+    <button type="submit">Upload</button>
+</form>
+
+@if (message) {
+<p>{{ message }}</p>
+}

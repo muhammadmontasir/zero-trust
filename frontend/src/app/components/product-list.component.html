@@ -1,0 +1,8 @@
+<h2>Product List</h2>
+<ul>
+    @for (p of products; track p.id) {
+    <li>
+        {{ p.name }} - {{ p.price }} x {{ p.quantity }}
+    </li>
+    }
+</ul>
