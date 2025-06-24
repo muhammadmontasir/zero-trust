@@ -6,6 +6,9 @@ use Infrastructure\MySQL\MySQLProductRepository;
 use Application\UseCases\CalculateTotalPrice;
 
 header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
 
 spl_autoload_register(function ($class) {
     $base = __DIR__ . '/../src/';
