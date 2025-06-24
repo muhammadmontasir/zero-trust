@@ -35,7 +35,7 @@ def cleanup_files():
 def handle_exit(signum, frame):
     print("\nSession ended.")
     stop_docker()
-    cleanup_files()
+    # cleanup_files()
     sys.exit(0)
 
 def wait_for_logout():
